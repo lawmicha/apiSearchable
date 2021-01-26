@@ -25,9 +25,36 @@ type Blog6 @model @searchable {
 }
 ```
 
-Run `amplify console api` to see your search queries and their parameters
+Run `amplify console api` and navigate to the Queries tab, and determine the search query you want to perform and its parameters.
 
-This sample provides an extension that makes it easy for you to map exactly what you see in the AppSync console to a GraphQL request.
+This sample provides an extension that makes it easy to map to a AppSync search query.
+
+```swift
+func searchBlogs() {
+    let filter: [String: Any] = [
+        "name": [
+            "matchPhrase": "first"
+        ]
+    ]
+    Amplify.API.query(request: .search(Blog6.self,
+                                        filter: filter,
+                                        limit: 1000,
+                                        sort: QuerySortBy.ascending(Blog6.keys.id))) { event in
+        switch event {
+        case .success(let result):
+            switch result {
+            case .success(let blogs):
+                print("Successfully searched blogs: \(blogs)")
+            case .failure(let error):
+                print("Got failed result with \(error.errorDescription)")
+            }
+        case .failure(let error):
+            print("Got failed event with error \(error)")
+        }
+    }
+}
+```
+Extension https://gist.github.com/lawmicha/d8a9453a3dfdc976f4cfa976a9c4eb30
 
 
 
