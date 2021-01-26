@@ -1,0 +1,20 @@
+type Blog6 @model @searchable {
+  id: ID!
+  name: String!
+  posts: [Post6] @connection(keyName: "byBlog", fields: ["id"])
+}
+
+type Post6 @model @key(name: "byBlog", fields: ["blogID"]) @searchable {
+  id: ID!
+  title: String!
+  blogID: ID!
+  blog: Blog6 @connection(fields: ["blogID"])
+  comments: [Comment6] @connection(keyName: "byPost", fields: ["id"])
+}
+
+type Comment6 @model @key(name: "byPost", fields: ["postID", "content"]) @searchable {
+  id: ID!
+  postID: ID!
+  post: Post6 @connection(fields: ["postID"])
+  content: String!
+}

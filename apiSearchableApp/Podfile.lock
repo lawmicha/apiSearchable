@@ -1,0 +1,40 @@
+PODS:
+  - Amplify (1.5.4):
+    - Amplify/Default (= 1.5.4)
+  - Amplify/Default (1.5.4)
+  - AmplifyPlugins/AWSAPIPlugin (1.5.4):
+    - AppSyncRealTimeClient (~> 1.4.0)
+    - AWSCore (~> 2.22.0)
+    - AWSPluginsCore (= 1.5.4)
+  - AppSyncRealTimeClient (1.4.2):
+    - Starscream (~> 3.1.0)
+  - AWSCore (2.22.0)
+  - AWSPluginsCore (1.5.4):
+    - Amplify (= 1.5.4)
+    - AWSCore (~> 2.22.0)
+  - Starscream (3.1.1)
+
+DEPENDENCIES:
+  - Amplify
+  - AmplifyPlugins/AWSAPIPlugin
+
+SPEC REPOS:
+  trunk:
+    - Amplify
+    - AmplifyPlugins
+    - AppSyncRealTimeClient
+    - AWSCore
+    - AWSPluginsCore
+    - Starscream
+
+SPEC CHECKSUMS:
+  Amplify: 9250284b62605d1df4dd127db418c5f5fd564765
+  AmplifyPlugins: 6f017013a82fdcd1ea27f21f66f311d3f14beeb5
+  AppSyncRealTimeClient: 7fb160294d067b6c0c4b3c4ab91e953fd4cfba30
+  AWSCore: 8bd1def9cb0b6770c65b6d394f1c1cbc0a5562b7
+  AWSPluginsCore: e4c20e3f3c1be03305ef0fdd568fda78813b7860
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
+
+PODFILE CHECKSUM: d997b324624f9bfd0ccb101622e5d1e86edca79e
+
+COCOAPODS: 1.10.0
